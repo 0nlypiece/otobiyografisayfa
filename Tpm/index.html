@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kişisel Profil</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome 6.5.0 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    html, body {
+      height: 100vh;
+      margin: 0;
+      overflow: auto;
+      background-color: #f4f6f9;
+    }   .mapouter{position:relative;text-align:right;} .gmap_canvas{overflow:hidden;background:none!important;} .gmap_canvas iframe{width:100%;height:100%;} .mapouter a{display:block;font-size:0.85em;text-align:center;padding:5px 0;color:#6c757d;text-decoration:none;} .gme-generated-link{display:none!important;}
+
+
+    .container-fluid {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    div[class*=box] {
+  height: 33.33%;
+  width: 100%;
+  margin-left: 20px;
+  border-radius: 3px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-1 { background-color: #2199fc; }
+.box-2 { background-color: #3C3C3C; }
+.box-3 { background-color: #66A182; }
+
+.btn {
+  line-height: 35px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+
+    .card {
+      height: 40%;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+
+    .profile-info img {
+      width: 100px;
+      border-radius: 50%;
+    }
+ .full-height {
+    min-height: 100vh; /* Tüm ekran yüksekliği */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Kartların esnek büyümesi için */
+  .flex-grow-1 {
+    flex-grow: 1;
+  }
+  .btn-one {
+   
+  color: #FFF;
+  transition: all 0.3s;
+  position: relative;
+}
+.btn-one span {
+  transition: all 0.3s;
+}
+.btn-one::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255,255,255,0.5);
+  border-bottom-color: rgba(255,255,255,0.5);
+  transform: scale(0.1, 1);
+}
+.btn-one:hover span {
+  letter-spacing: 2px;
+}
+.btn-one:hover::before {
+  opacity: 1; 
+  transform: scale(1, 1); 
+}
+.btn-one::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255,255,255,0.1);
+}
+.btn-one:hover::after {
+  opacity: 0; 
+  transform: scale(0.1, 1);
+}
+
+
+  /* İkinci kartı ekranın sonuna kadar uzat */
+  .full-height-card {
+    height: 100%;
+    min-height: 500px; /* Dilediğin yüksekliği verebilirsin */
+  }
+    .progress {
+      height: 5px;
+      margin-bottom: 10px;
+    }
+
+    .list-group-item i {
+      margin-right: 8px;
+    }
+
+    .overflow-auto {
+      overflow: auto;
+    }
+    .mySwiper {
+    max-height: 520px; /* Slider yüksekliğini artırdık */
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .swiper-slide img {
+    max-height: 500px; /* Fotoğraf yüksekliği büyüdü */
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+.card.profile-card {
+    min-height: 350px;
+  }
+
+  .profile-info img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+ .progress {
+  height: 10px;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  height: 10px;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+<div class="container-fluid">
+  <div class="row w-100 h-100">
+    <!-- Sol Panel -->
+    <div class="col-md-4 d-flex flex-column">
+     <div class="card mb-3 flex-fill profile-card">
+  <div class="card-body text-center profile-info">
+    <img src="Imaes/foto6.jpg" alt="User" />
+    <h5 class="mt-3">Sinan Göl</h5>
+    <p>Nazilli Mesleki ve Teknik Anadolu Öğrencisi</p>
+    <p>Adres Aydın/Nazilli</p>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=golsinan90@gmail.com&su=Merhaba&body=Size mesaj göndermek istiyorum." target="_blank" class="btn btn-outline-primary btn-sm">Mesaj</a>
+  </div>
+</div>
+     <div class="card flex-fill">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <i class="fab fa-github"></i> Github 
+          <a href="https://github.com/0nlypiece" target="_blank" class="float-right text-muted">https://github.com/0nlypiece</a>
+        </li>
+        <li class="list-group-item">
+          <i class="fab fa-twitter"></i> X 
+          <a href="https://x.com/0nlypiece" target="_blank" class="float-right text-muted">https://x.com/0nlypiece</a>
+        </li>
+        <li class="list-group-item">
+          <i class="fab fa-instagram"></i> Instagram 
+          <a href="https://www.instagram.com/_0nly_piece/?igsh=MTEyY3o1dWhsZ2IzMA%3D%3D" target="_blank" class="float-right text-muted">@_0nly_piece</a>
+        </li>
+       
+      </ul>
+   <div class="swiper mySwiper mt-4">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="Imaes/foto1.jpg" alt="Foto 1" class="rounded" />
+    </div>
+    <div class="swiper-slide">
+      <img src="Imaes/foto2.jpg" alt="Foto 2" class="rounded" />
+    </div>
+    <div class="swiper-slide">
+      <img src="Imaes/foto3.jpg" alt="Foto 3" class="rounded" />
+    </div>
+    <div class="swiper-slide">
+      <img src="Imaes/foto4.jpg" alt="Foto 4" class="rounded" />
+    </div>
+    <div class="swiper-slide">
+      <img src="Imaes/foto5.jpg" alt="Foto 5" class="rounded" />
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+     </div>
+     
+    </div>
+
+    <!-- Sağ Panel -->
+    <div class="col-md-8 d-flex flex-column ">
+      <div class="card mb-3 flex-fill">
+        <div class="card-body">
+          <h6 class="mb-3">Kullanıcı Bilgileri</h6>
+          <div class="row">
+            <div class="col-sm-3"><strong>Full Name</strong></div>
+            <div class="col-sm-9 text-secondary">Sinan Göl</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3"><strong>Email</strong></div>
+            <div class="col-sm-9 text-secondary">golsinan90@gmail.com</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3"><strong>Telefon</strong></div>
+            <div class="col-sm-9 text-secondary">+90 530 824 57 36</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3"><strong>Mobile</strong></div>
+            <div class="col-sm-9 text-secondary">+90 530 824 57 36</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3"><strong>Adres</strong></div>
+            <div class="col-sm-9 text-secondary">Turkiye/Aydın/Nazilli/yeni mah./no 8</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3"><strong>Çalışma Durunmu</strong></div>
+            <div class="col-sm-9 text-secondary">Öğrenci</div>
+          </div>
+          <hr>
+           <div class="row">
+            <div class="col-sm-3"><strong>Çalıştığım yerler(Yazılım'la ilgili)</strong></div>
+            <div class="col-sm-9 text-secondary">____________</div>
+          </div>
+          <hr>
+       
+          
+        </div>
+      </div>
+
+      <div class="row flex-fill" >
+        <div class="col-md-6" >
+          <div class="card h-100" >
+            <div class="card-body">
+              <h6><strong><span class="text-primary"></span>Öğrendiğim yetenekler</strong></h6>
+             <small>Web Tasarım</small>
+             <div class="progress">
+               <div class="progress-bar bg-primary" style="width: 60%;"></div>
+             </div>
+             <small>Front End</small>
+             <div class="progress">
+               <div class="progress-bar bg-primary" style="width: 30%;"></div>
+             </div>
+              <small>Back End</small>
+             <div class="progress">
+               <div class="progress-bar bg-primary" style="width: 10%;"></div>
+             </div>
+               <small>Mobile Uygulamalar</small>
+             <div class="progress">
+               <div class="progress-bar bg-primary" style="width: 60%;"></div>
+             </div>
+              <small>Oyun Geliştirme(Unity)</small>
+             <div class="progress">
+               <div class="progress-bar bg-primary" style="width: 66%;"></div>
+             </div>
+               <small>PhotoShop(Abode)</small>
+             <div class="progress">
+               <div class="progress-bar bg-primary" style="width: 63%;"></div>
+             </div>
+              <small>Müzik Edit(Abode)</small>
+             <div class="progress">
+               <div class="progress-bar bg-primary" style="width: 40%;"></div>
+             </div>
+               <small>Python</small>
+             <div class="progress">
+               <div class="progress-bar bg-primary" style="width: 20%;"></div>
+             </div>
+             <small>C# </small>
+             <div class="progress">
+               <div class="progress-bar bg-primary" style="width: 40%;"></div>
+             </div>
+            </div>
+          </div>
+        </div>
+         <div class="row flex-fill">
+       <div class="box-1">
+  <a  href="ozgecmis.html" class="btn btn-one">
+    <span>Özgeçmiş</span>
+  </a>
+</div>
+<br>
+<div class="mapouter" style="position:relative; text-align:right; width:500px; height:450px;">
+  <div class="gmap_canvas" style="overflow:hidden; background:none!important; width: 900px; height:450px;">
+    <iframe width="650px" height="450px" style="border:0; margin-left: 20px; margin-top: 10px;"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?q=https%3A%2F%2Fwww.google.com.tr%2Fmaps%2Fplace%2FNazilli%2BMesleki%2Bve%2BTeknik%2BAnadolu%2BLisesi%2F%4037.899422%2C28.3230024%2C19z%2Fdata%3D!4m15!1m8!3m7!1s0x14b8b88cb65356cd%3A0x4a4c800d095e57e2!2sNazilli%2BMesleki%2Bve%2BTeknik%2BAnadolu%2BLisesi!8m2!3d37.8993868!4d28.3225143!10e5!16s%252Fg%252F1vt_sgtw!3m5!1s0x14b8b88cb65356cd%3A0x4a4c800d095e57e2!8m2!3d37.8993868!4d28.3225143!16s%252Fg%252F1vt_sgtw%3Fentry%3Dttu%26g_ep%3DEgoyMDI1MDUyMS4wIKXMDSoASAFQAw%253D%253D&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+  </div>
+  <a href="https://norsumediagroup.com/embed-google-map-website-free" target="_blank" rel="noopener noreferrer" class="gme-generated-link">Embed Map on Website for Free</a>
+
+</div>
+      </div>
+      
+    
+    </div>
+    
+  </div>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,    // Sadece 1 slide göster
+    spaceBetween: 20,
+    loop: true,
+    centeredSlides: false,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    // breakpoints kaldırdım çünkü hep 1 slide istiyorsun
+  });
+</script>
+</body>
+</html>
